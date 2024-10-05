@@ -1,0 +1,50 @@
+services:
+  app1:
+    build:
+      context: ./app1
+    ports:
+      - "8081:8081"
+
+  app2:
+    build:
+      context: ./app2
+    ports:
+      - "8082:8082"
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - app1
+      - app2
+      - prometheus
+
+  k6:
+    build:
+      context: ./k6
+      dockerfile: Dockerfile
+    depends_on:
+      - nginx
+    ports:
+      - "6565:6565"
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/prometheus.yml
+    command:
+      - '--config.file=/prometheus.yml'
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
