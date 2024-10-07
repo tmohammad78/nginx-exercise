@@ -1,6 +1,6 @@
 # Load Balancing
 This example I added two python app and upstream to the nginx. we are load balancing with nginx.
-Now you can run ```docker-compose up --build``` to see app on ```localhost:80```. you will see some request are handled by server 1 and some of them by server 2.
+Now you can run ```docker-compose up --build``` to see app on ```localhost:80```. you will see some request are handled by server 1 and some of them by server 2. <br />
 Also if you like to see results on charts, you can open ```localhost:3000``` to see grafan.
 I am using prometheus and loki and promtail to read from nginx logs and show the count of that. for instance, in the grafana you should create a data source with loki then you should add ```http://loki:3100/``` to connection part in section of loki in data source.
 
