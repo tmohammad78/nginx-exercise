@@ -13,6 +13,7 @@ I created some branches and in each branch you see a new folder with the name of
 * [Gzip](https://github.com/tmohammad78/nginx-exercise/tree/07-gzip/gzip)
 * [Proxy](https://github.com/tmohammad78/nginx-exercise/tree/08-proxy/proxy)
 * [Load Balance](https://github.com/tmohammad78/nginx-exercise/tree/09-load-balance/load-balance)
+* [Rate Limit](https://github.com/tmohammad78/nginx-exercise/tree/main/rate-limit)
 * [React Nginx](https://github.com/tmohammad78/nginx-exercise/tree/10-react-nginx/react-nginx)
 
 
